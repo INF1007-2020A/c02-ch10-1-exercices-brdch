@@ -25,7 +25,7 @@ def separate_channels(samples, num_channels):
 
 def generate_sample_time_points(duration):
 	# Générer un tableau de points temporels également espacés en seconde. On a SAMPLING_FREQ points par seconde.
-	pass
+
 
 def sine(freq, amplitude, duration):
 	# Générer une onde sinusoïdale à partir de la fréquence et de l'amplitude donnée, sur le temps demandé et considérant le taux d'échantillonnage.
@@ -33,11 +33,12 @@ def sine(freq, amplitude, duration):
 	# y = A * sin(F * x), où x est en radian.
 	# Si on veut le x qui correspond au moment t, on peut dire que 2π représente une seconde, donc x = t * 2π,
 	# Or t est en secondes, donc t = i / nb_échantillons_par_secondes, où i est le numéro d'échantillon.
-	pass
+
 
 def square(freq, amplitude, duration):
 	# Générer une onde carrée d'une fréquence et amplitude donnée.
-	pass
+	time_points = generate_sample_time_points(duration)
+	return np.sign(sine(freq, 1, duration)) * amplitude
 
 def sine_with_overtones(root_freq, amplitude, overtones, duration):
 	# Générer une onde sinusoïdale avec ses harmoniques. Le paramètre overtones est une liste de tuple où le premier élément est le multiple de la fondamentale et le deuxième élément est l'amplitude relative de l'harmonique.
